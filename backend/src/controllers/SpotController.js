@@ -7,6 +7,7 @@ module.exports = {
 
         const spots = await Spot.find({ techs: tech });
 
+        
         return response.json(spots);
     },
 
@@ -26,10 +27,10 @@ module.exports = {
             user: user_id,
             thumbnail: filename,
             company,
-            techs: techs.split('.').map(tech => tech.trim()),
+            techs: techs.split(',').map(tech => tech.trim()),
             price
         });
 
-        return response.json({ spot })
+        return response.json(spot)
     }
 };
